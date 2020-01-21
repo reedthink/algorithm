@@ -46,3 +46,4 @@ int main()
 //完成
 //git@github.com:reedthink/WinterVacation.git
 //git push --set-upstream origin master
+//g++ 选择排序.cpp -o build/选择排序 && time ./build/选择排序 <sort.in >Selection_sort.out

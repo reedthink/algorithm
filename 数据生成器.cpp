@@ -2,7 +2,7 @@
 
 using namespace std;
 typedef long long ll;
-const int maxn = 1e4 + 7;
+const int maxn = 1e5 + 7;
 int main()
 {
     int n;
