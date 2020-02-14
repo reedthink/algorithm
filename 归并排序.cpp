@@ -8,21 +8,22 @@ int n;
 void JustRead()
 {
     scanf("%d", &n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         scanf("%d", &a[i]);
     }
 }
 int Merge_sort(int a[], int n) //从小到大
 {
-    
 }
 
 int main()
 {
     JustRead();
-    // Merge_sort(a, n); 
+    // Merge_sort(a, n);
     printf("%d\n", n);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         printf("%d ", a[i]);
     }
     return 0;
