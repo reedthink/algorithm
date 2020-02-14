@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+//本文件仅为测出IO的时间，便于对比各排序的真实排序时间
 using namespace std;
 typedef long long ll;
 const int maxn = 1e6 + 7;
