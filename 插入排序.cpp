@@ -12,7 +12,7 @@ void JustRead()
         scanf("%d", &a[i]);
     }
 }
-int Insertion_sort(int a[], int n) //从小到大
+void Insertion_sort(int a[], int n) //从小到大
 {
     int i, j, key;
     for (int i = 1; i < n; ++i) {
