@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 
-// alt+f3恢复边框
-
 using namespace std;
 typedef long long ll;
 const int maxn = 1e6 + 7;
