@@ -6,10 +6,8 @@ const int maxn = 1e5 + 7;
 int a[maxn];
 int check(int n)
 {
-    for (int i = 1; i < n; i++)
-    {
-        if (a[i - 1] > a[i])
-        {
+    for (int i = 1; i < n; i++) {
+        if (a[i - 1] > a[i]) {
             return i;
         }
     }
@@ -19,18 +17,14 @@ int main()
 {
     int n;
     scanf("%d", &n);
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         scanf("%d", &a[i]);
     }
     int z = check(n);
-    if (z == 0)
-    {
+    if (z == 0) {
         puts("Accepted!");
-    }
-    else
-    {
-        printf("第%d个元素有问题\n", z);
+    } else {
+        printf("第%d个元素周围有问题\n", z);
     }
     return 0;
 }
