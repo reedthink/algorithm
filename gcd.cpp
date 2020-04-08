@@ -17,7 +17,7 @@ int nb_gcd(int a, int b)
 {
     if (a == b)
         return a;
-    if ((a & 1) == 0 && (b & 1) == 0)
+    if ((a & 1) == 0 && (b & 1) == 0) //均为偶数，移位
         return gcd(a >> 1, b >> 1) << 1;
     else if ((a & 1) == 0 && (b & 1) != 0)
     {
@@ -25,7 +25,7 @@ int nb_gcd(int a, int b)
     }
     else if ((a & 1) != 0 && (b & 1) == 0)
         return gcd(a, b >> 1);
-    else
+    else //都是奇数，更相减损
     {
         int big = a > b ? a : b;
         int small = a < b ? a : b;
