@@ -1,5 +1,4 @@
-//小顶堆
-//其实本质上和大顶堆那个一样，只是写法不同
+//从大到小排序，构建小顶堆，每次把小的元素放树数组的最后
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -12,7 +11,7 @@ void upAdjust(vector<int> &array)
     //因为这个代码中我们将根节点下标定为0,那么左右子节点的下标分别为2*0+1,2*0+2
     //那么父节点下标就是孩子节点下标先-1再处以2
 
-    int childIndex = array.size()-1;
+    int childIndex = array.size() - 1;
     int parentIndex = (childIndex - 1) / 2;
     int temp = array[childIndex];
     while (childIndex > 0 && temp < array[parentIndex])
@@ -38,8 +37,8 @@ void downAdjust(vector<int> &array, int parentIndex, int length)
     int childIndex = parentIndex * 2 + 1; //默认左孩子，因为是完全二叉树
     while (childIndex < length)
     {
-        //默认是左孩子
-        //如果有右孩子，且右孩子小于左孩子的值，则定位到右孩子
+        // 默认是左孩子
+        // 如果有右孩子，且右孩子小于左孩子的值，则定位到右孩子
         if (childIndex + 1 < length && array[childIndex + 1] < array[childIndex])
         {
             childIndex++;
@@ -56,39 +55,34 @@ void downAdjust(vector<int> &array, int parentIndex, int length)
     array[parentIndex] = temp;
 }
 /**
- * 构建堆
+ * 堆排序（降序）
  * @param array 待调整的堆
  * 
  */
-void buildHeap(vector<int> &array)
+void heapSort(vector<int> &array)
 {
-    // 从最后一个非叶子节点开始，依次做“下沉”调整
-    for (int i = (array.size() - 2) / 2; i >= 0; i--)
+    // 先构建堆：从最后一个非叶子节点开始，依次做“下沉”调整
+    for (int i = (array.size() - 2) / 2; i >= 0; i--) // 经观察我们发现，(array.size() - 2) / 2是第一个非叶子节点
     {
         downAdjust(array, i, array.size());
+    }
+    // 循环删除堆顶，并且移到数组尾部，再调整堆
+    for (int i = array.size() - 1; i > 0; i--)
+    {
+        int temp = array[i]; //暂存
+        array[i] = array[0];
+        array[0] = temp;
+        downAdjust(array, 0, i); //下沉的范围改变
     }
 }
 int main()
 {
-    vector<int> v= {1, 3, 2, 6, 5, 7, 8, 9, 10};//堆
-    v.push_back(0);//添加0到尾部
-    // int a[] ; //10个
-    // for (int i = 0; i < 10; i++)
-    // {
-    //     v.push_back(a[i]);
-    // }
-    upAdjust(v);//把尾部元素插入堆中，即上浮操作
+    vector<int> arr = {1, 3, 2, 6, 5, 7, 8, 9, 10, 0};
+    heapSort(arr);
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i] << ' ';
+    }
 
-    for (int i = 0; i < v.size(); i++)
-    {
-        cout << v[i] << endl;
-    }
-    cout << endl;
-    vector<int> array = {7, 1, 3, 10, 5, 2, 8, 9, 6};
-    buildHeap(array);//构建堆
-    for (int i = 0; i < array.size(); i++)
-    {
-        cout << array[i] << endl;
-    }
     return 0;
 }
