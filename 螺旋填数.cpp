@@ -1,3 +1,8 @@
+/**
+ * 可用于方阵（行等于列的矩阵）
+ * 
+ * 
+ */
 #include <iostream>
 using namespace std;
 int main()
