@@ -25,7 +25,8 @@ TreeNode *createBT(queue<int> &q) //创建二叉树，将线性表中的数据�
         node->left = createBT(q);
         node->right = createBT(q);
     }
-    else {
+    else
+    {
         node->val = 0;
         node->left = NULL;
         node->right = NULL;
@@ -36,7 +37,7 @@ void preOrderTraveral(TreeNode *node) //前序遍历
 {
     if (node == NULL)
         return;
-    cout << node->val << endl;
+    cout << node->val << ',';
     preOrderTraveral(node->left);
     preOrderTraveral(node->right);
 }
@@ -45,7 +46,7 @@ void inOrderTraveral(TreeNode *node)
     if (node == NULL)
         return;
     inOrderTraveral(node->left);
-    cout << node->val << endl;
+    cout << node->val << ',';
     inOrderTraveral(node->right);
 }
 void postOrderTraveral(TreeNode *node)
@@ -54,7 +55,7 @@ void postOrderTraveral(TreeNode *node)
         return;
     postOrderTraveral(node->left);
     postOrderTraveral(node->right);
-    cout << node->val << endl;
+    cout << node->val << ',';
 }
 int main()
 {
@@ -65,9 +66,15 @@ int main()
     TreeNode *parent = createBT(q);
     cout << "前序遍历：" << endl;
     preOrderTraveral(parent);
+    cout << endl;
     cout << "中序遍历：" << endl;
     inOrderTraveral(parent);
+    cout << endl;
+
     cout << "后序遍历：" << endl;
     postOrderTraveral(parent);
+    cout << endl;
+
     return 0;
 }
+//traversal;
