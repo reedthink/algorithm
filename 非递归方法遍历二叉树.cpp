@@ -12,7 +12,7 @@ struct BinTree
 {
     int value;
     BinTree *Left, *Right;
-    BinTree()
+    BinTree() //构造函数拯救代码量！
     {
         value = 0;
         Left = NULL;
@@ -38,6 +38,57 @@ BinTree *createBT(queue<int> &q)
 
     return node;
 }
+
+void PreOrderTraversal(BinTree *node);
+void InOrderTraversal(BinTree *BT);
+void PostOrderTraversal(BinTree *node);
+void levelTraversal(BinTree *node);
+
+int main()
+{
+    queue<int> q;
+    vector<int> a = {3, 2, 9, 0, 0, 10, 0, 0, 8, 0, 4};
+    for (int i = 0; i < 11; i++)
+        q.push(a[i]);
+    BinTree *be = createBT(q);
+    cout << "前序遍历:" << endl;
+    PreOrderTraversal(be);
+    cout << endl;
+    cout << "中序遍历:" << endl;
+    InOrderTraversal(be);
+    cout << endl;
+
+    cout << "后序遍历:" << endl;
+    // PostOrderTraversal(be);//后序的待写
+    cout << endl;
+
+    cout << "层次遍历:" << endl;
+
+    levelTraversal(be);
+    return 0;
+}
+//前序
+void PreOrderTraversal(BinTree *node)
+{
+    auto T = node;
+    stack<BinTree *> st;
+    while (T || !st.empty())
+    {
+        while (T)
+        {
+            st.push(T);
+            cout << T->value << ',';
+            T = T->Left;
+        }
+        if (!st.empty())
+        {
+            T = st.top();
+            st.pop();
+            T = T->Right;
+        }
+    }
+}
+//中序
 void InOrderTraversal(BinTree *BT)
 {
     auto T = BT;
@@ -59,54 +110,7 @@ void InOrderTraversal(BinTree *BT)
         }
     }
 }
-void PreOrderTraversal(BinTree *node);
-void PostOrderTraversal(BinTree *node);
-void levelTraversal(BinTree *node);
-
-int main()
-{
-    queue<int> q;
-    vector<int> a = {3, 2, 9, 0, 0, 10, 0, 0, 8, 0, 4};
-    for (int i = 0; i < 11; i++)
-        q.push(a[i]);
-    BinTree *be = createBT(q);
-    cout << "前序遍历:" << endl;
-    PreOrderTraversal(be);
-    cout << endl;
-    cout << "中序遍历:" << endl;
-    InOrderTraversal(be);
-    cout << endl;
-
-    cout << "后序遍历:" << endl;
-    PostOrderTraversal(be);
-    cout << endl;
-
-    cout << "层次遍历:" << endl;
-
-    levelTraversal(be);
-    return 0;
-}
-void PreOrderTraversal(BinTree *node)
-{
-    auto T = node;
-    stack<BinTree *> st;
-    while (T || !st.empty())
-    {
-        while (T)
-        {
-            st.push(T);
-            cout << T->value << ',';
-            T = T->Left;
-        }
-        if (!st.empty())
-        {
-            T = st.top();
-            st.pop();
-            T = T->Right;
-        }
-    }
-}
-//这个有难度
+//这个有难度，待写
 void PostOrderTraversal(BinTree *node)
 {
     auto T = node;
