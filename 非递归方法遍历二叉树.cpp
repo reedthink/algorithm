@@ -43,7 +43,7 @@ void PreOrderTraversal(BinTree *node);
 void InOrderTraversal(BinTree *BT);
 void PostOrderTraversal(BinTree *node);
 void levelTraversal(BinTree *node);
-
+void levelTraversal_newline(BinTree *node);
 int main()
 {
     queue<int> q;
@@ -154,6 +154,35 @@ void levelTraversal(BinTree *node)
             }
             if (now->Right)
                 q.push(now->Right);
+        }
+    }
+}
+//层次遍历,分层换行
+void levelTraversal_newline(BinTree *node)
+{
+    auto T = node;
+    if (T)
+    {
+        queue<BinTree *> q;
+        q.push(T);
+        while (!q.empty())
+        {
+            int cur = q.size();
+            while (cur > 0) // 一直访问到当前层的最后一个节点
+            {
+                cur--;
+                auto now = q.front();
+                cout << now->value << ',';
+                q.pop();
+
+                if (now->Left)
+                {
+                    q.push(now->Left);
+                }
+                if (now->Right)
+                    q.push(now->Right);
+            }
+            printf("\n");
         }
     }
 }
