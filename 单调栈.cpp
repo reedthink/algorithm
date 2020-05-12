@@ -5,6 +5,7 @@ using namespace std;
 
 //本实例实现单调递增栈
 stack<int> sta;
+
 int main()
 {
     sta.push(50);

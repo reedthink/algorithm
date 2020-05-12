@@ -24,10 +24,8 @@ int main()
     // cout << v.size() << endl;
     cout << "unique后的样子：" << endl;
     pr(v);
-    // cout << it - v.begin() << endl;
-    // cout << *it << endl;
-    v.resize(it - v.begin());
-    // // v.erase(it, v.end());
+    v.resize(it - v.begin()); //重新分配内存空间
+    // // v.erase(it, v.end());//擦除末端多余空间
     cout << "去重完毕:" << endl;
     pr(v);
 

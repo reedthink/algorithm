@@ -15,8 +15,8 @@ struct BitNode //结点结构
 
 //右单旋 RR
 void R_Rotate(BitNode *p)
-
 {
+    
 }
 int main()
 {
