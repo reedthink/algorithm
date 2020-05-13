@@ -10,7 +10,7 @@ using namespace std;
 void upAdjust(vector<int> &array)
 {
     //因为这个代码中我们将根节点下标定为0,那么左右子节点的下标分别为2*0+1,2*0+2
-    //那么父节点下标就是孩子节点下标先-1再处以2
+    //那么父节点下标就是孩子节点下标先-1再除以2
 
     int childIndex = array.size()-1;
     int parentIndex = (childIndex - 1) / 2;
