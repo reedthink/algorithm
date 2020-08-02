@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <vector>
 using namespace std;
-//二分搜索求LCA
+//二分搜索求LCA(最近公共祖先)
 const int MAX_V = 1000;
 vector<int> G[MAX_V];
 int root;
