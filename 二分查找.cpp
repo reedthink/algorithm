@@ -39,9 +39,8 @@ int UpperBinarySearch(int left, int right, vector<int> a, int k)
     // 实现思路：一直往右侧收缩区间
     int ret = -1; //数组中不含查询元素的情况，返回-1
     int mid;
-    int time = 8;
     right-=1;
-    while (left < right && time)
+    while (left < right)
     {
         time--;
         mid = (left + right) / 2;
