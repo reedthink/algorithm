@@ -42,7 +42,7 @@ int UpperBinarySearch(int left, int right, vector<int> a, int k)
     right-=1;
     while (left < right)
     {
-        time--;
+        // time--;
         mid = (left + right) / 2;
         // cout << left << ' ' << right << ' ' << mid<<endl;
         if (a[mid] > k)
